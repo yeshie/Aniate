@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-star: var(--star);
+  --font-sans: var(--font-geist-sans);
+}
+
+:root {
+  --bg: #fbfaf8;
+  --surface: #ffffff;
+  --line: rgb(30 30 40 / 0.1);
+  --fg: #1c1b22;
+  --muted: #6b6a75;
+  --accent: #5b4fe0;
+  --star: #e8a317;
+  --poster-l: 88%;
+  --poster-ink: #1c1b22;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121216;
+    --surface: #1a1a20;
+    --line: rgb(255 255 255 / 0.09);
+    --fg: #ecebf2;
+    --muted: #9b9aa6;
+    --accent: #9d94ff;
+    --star: #f5b83d;
+    --poster-l: 26%;
+    --poster-ink: #ecebf2;
+    color-scheme: dark;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Generated poster tile: each title sets --hue inline. */
+.poster {
+  background: linear-gradient(
+    160deg,
+    hsl(var(--hue) 70% var(--poster-l)),
+    hsl(calc(var(--hue) + 40) 60% calc(var(--poster-l) - 8%))
+  );
+  color: var(--poster-ink);
+}
